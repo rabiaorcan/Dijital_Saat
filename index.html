@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dijital Saat </title>
+<style>
+    body
+{
+    background-color: #424242;
+    color: #fff;
+   
+}
+#clock
+{
+    text-align: center;
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%) ;
+}
+#clock h2{
+    font-size: 50px; 
+    font-weight: 20px;
+    color: blueviolet;
+}
+
+#clock .clock-container
+{
+    display: flex;
+    justify-items: center;
+}
+.clock-items
+{
+    width: 32%;
+    background-color: #fff;
+    color:black;
+    border-radius: 10px;
+    margin-right: 3%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 50px;
+    font-weight: 50%;
+}
+</style>
+
+</head>
+<body>
+<div id="clock">
+    <h2>DIGITAL CLOCK</h2>
+    <div class="clock-container">
+        <div class="clock-items"><p id="hour">13</p></div>
+        <div class="clock-items"><p id="minute">13</p></div>
+        <div class="clock-items"><p id="second">13</p></div>
+    </div>
+    <p id="bugun"></p>
+</div>
+
+<script>
+    
+  function GetTime()
+  {
+    var tarih = new Date();
+    var hour=tarih.getHours();
+    var minute=tarih.getMinutes();
+    var second=tarih.getSeconds();
+
+
+    var gun=tarih.getDate();
+    var ay=tarih.getMonth() +1 ;
+    var yil=tarih.getFullYear();
+
+    if(hour<10)
+    {
+        hour=document.getElementById("hour").innerText= "0" + hour;
+    }
+    else{hour=document.getElementById("hour").innerText=hour;}
+
+    if(minute<10)
+    {
+        minute=document.getElementById("minute").innerText="0" + minute;
+    }
+    else{minute=document.getElementById("minute").innerText=minute;}
+
+    if(second<10)
+    {
+        second=document.getElementById("second").innerText= "0" + second;
+    }
+    else{second=document.getElementById("second").innerText=second;}
+
+    if(gun<10)
+    {
+        gun=document.getElementById("bugun").innerText= "0" + gun;
+    }
+    else{gun=document.getElementById("bugun").innerText=gun;}
+
+    if(ay<10)
+    {
+        ay=document.getElementById("bugun").innerText= "0" + ay;
+    }
+    else{ay=document.getElementById("bugun").innerText=ay;}
+    
+    if(yil<10)
+    {
+        yil=document.getElementById("bugun").innerText= "0" + yil;
+    }
+    else{yily=document.getElementById("bugun").innerText=yil;}
+
+
+    
+
+    document.getElementById("bugun").innerText=gun +"/"+ ay + "/" + yil ;
+
+  }
+  setInterval(function(){ GetTime();},1000)
+  
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
